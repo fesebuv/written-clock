@@ -1,11 +1,11 @@
 var helpers = require('./helpers/');
 var spell = require('./helpers/spell');
 
-var writtenClock = function (hours, minutes) {
+var writtenClock = function (dateObj) {
   var getTimeObject = helpers.getTimeObject;
   var writtenTime = spell.writtenTime;
 
-  var timeObj = getTimeObject(hours, minutes);
+  var timeObj = getTimeObject(dateObj);
   return writtenTime(timeObj);
 };
 

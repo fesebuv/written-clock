@@ -26,15 +26,15 @@ var getHour = function (hours) {
   return hours;
 }
 
-var getTimeObject = function (hours, minutes) {
-  var theHour = getHour(hours);
-  var theMins = minutes;
-  var timeOfDay = getTimeOfDay(hours);
+var getTimeObject = function (dateObj) {
+  var date = new Date(dateObj);
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
 
   return {
-    hour: theHour,
-    min: theMins,
-    timeofday: timeOfDay
+    hour: getHour(hours),
+    min: minutes,
+    timeofday: getTimeOfDay(hours)
   };
 };
 
