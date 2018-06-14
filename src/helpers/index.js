@@ -1,13 +1,16 @@
 
+var NOON = 12;
+var MIDNIGHT = 0;
+
 var isAfternoon = function (hours) {
-  if(hours >= 12) {
+  if(hours >= NOON) {
     return true;
   }
   return false;
 }
 
 var isMidnight = function (hours) {
-  return hours === 0;
+  return hours === MIDNIGHT;
 }
 
 var getTimeOfDay = function (hours) {
@@ -18,10 +21,10 @@ var getTimeOfDay = function (hours) {
 }
 
 var getHour = function (hours) {
-  if (isAfternoon(hours) && hours > 12) {
-    return hours - 12;
+  if (isAfternoon(hours) && hours > NOON) {
+    return hours - NOON;
   } else if (isMidnight(hours)) {
-    return 12;
+    return NOON;
   }
   return hours;
 }
