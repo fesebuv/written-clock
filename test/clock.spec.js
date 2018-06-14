@@ -3,7 +3,7 @@ var clock = require('../src/clock').writtenClock;
 
 var getCurrentTime = function () {
   var outDate = new Date();
-  return clock(outDate.toISOString());
+  return clock(outDate);
 };
 
 describe('clock', function () {
@@ -12,7 +12,7 @@ describe('clock', function () {
   });
 
   describe('current time', function () {
-    it('should spell out current time: ' + getCurrentTime(), function () {
+    it('should spell out current time: "' + getCurrentTime() + '"', function () {
       expect(getCurrentTime()).to.be.ok;
     });
   });
@@ -23,7 +23,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(0,0,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s twelve a.m.');
     });
 
@@ -31,7 +31,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(12,0,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s twelve p.m.');
     });
 
@@ -39,7 +39,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(13,15,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s one fifteen p.m.');
     });
 
@@ -47,7 +47,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(1,15,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s one fifteen a.m.');
     });
 
@@ -55,7 +55,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(1,7,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s one oh seven a.m.');
     });
 
@@ -63,7 +63,7 @@ describe('clock', function () {
       var date = new Date();
       date.setHours(13,7,0);
 
-      var writtenTime = clock(date.toISOString());
+      var writtenTime = clock(date);
       expect(writtenTime).to.equal('It\'s one oh seven p.m.');
     });
   });
